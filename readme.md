@@ -35,7 +35,7 @@ git clone https://github.com/arad55500/quicker-photo-tuneup.git
 2. Navigate to the project directory:
 
 ```sh
-cd quicker-photo-tune-up
+cd quicker-photo-tuneup
 ```
 
 3. Install NPM packages:
