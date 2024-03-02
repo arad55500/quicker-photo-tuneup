@@ -28,14 +28,15 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repository:
 
-   ```sh
-   git clone https://github.com/yourusername/quicker-photo-tune-up.git
-    ```
+```sh
+git clone https://github.com/yourusername/quicker-photo-tune-up.git
+```
 
 2. Navigate to the project directory:
-    ```sh
-    cd quicker-photo-tune-up
-    ```
+
+```sh
+cd quicker-photo-tune-up
+```
 
 3. Install NPM packages:
 
