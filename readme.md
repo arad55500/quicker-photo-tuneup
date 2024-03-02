@@ -1,4 +1,4 @@
-![Screenshot2](src/Screenshots/Screenshot2.png "screenshot2")
+![Screenshot2](src/screenshots/Screenshot2.png "screenshot2")
 
 # Quicker Photo Tune-Up
 
@@ -70,4 +70,4 @@ Contributions are what make the open-source community such an amazing place to l
 
 ## SCreenshot
 
-![Screenshot1](src/Screenshots/Screenshot1.png "screenshot1")
+![Screenshot1](src/screenshots/Screenshot1.png "screenshot1")
