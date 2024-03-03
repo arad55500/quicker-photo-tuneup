@@ -2,38 +2,38 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 function App() {
-  const [image, setImage] = useState(null);
-  const [brightness, setBrightness] = useState(100);
-  const [contrast, setContrast] = useState(100);
-  const [saturation, setSaturation] = useState(100);
-  const [grayscale, setGrayscale] = useState(0);
-  const [flipHorizontal, setFlipHorizontal] = useState(1);
-  const [flipVertical, setFlipVertical] = useState(1);
-  const [rotate, setRotate] = useState(0);
+  const [image, setImage] = useState(null); // State to store the uploaded image
+  const [brightness, setBrightness] = useState(100); // State to store the brightness
+  const [contrast, setContrast] = useState(100); // State to store the contrast
+  const [saturation, setSaturation] = useState(100); // State to store the saturation
+  const [grayscale, setGrayscale] = useState(0); // State to store the grayscale
+  const [flipHorizontal, setFlipHorizontal] = useState(1); // State to store the horizontal flip
+  const [flipVertical, setFlipVertical] = useState(1); // State to store the vertical flip
+  const [rotate, setRotate] = useState(0); // State to store the rotation
 
-  const canvasRef = useRef(null);
+  const canvasRef = useRef(null); // Reference to the canvas element
 
   useEffect(() => {
     if (image) {
-      const canvas = canvasRef.current;
-      const ctx = canvas.getContext('2d');
-      const img = new Image();
-      img.src = image;
-      img.onload = () => {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.filter = `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturation}%) grayscale(${grayscale}%)`;
-        ctx.translate(canvas.width / 2, canvas.height / 2);
-        if (flipHorizontal !== 1 || flipVertical !== 1) {
-          ctx.scale(flipHorizontal, flipVertical);
+      const canvas = canvasRef.current; // Get the canvas element
+      const ctx = canvas.getContext('2d'); // Get the 2D context
+      const img = new Image(); // Create a new image
+      img.src = image; // Set the source of the image
+      img.onload = () => { // When the image is loaded
+        canvas.width = img.width; // Set the width and height of the canvas
+        canvas.height = img.height; // Set the width and height of the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+        ctx.filter = `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturation}%) grayscale(${grayscale}%)`; // Apply the filter
+        ctx.translate(canvas.width / 2, canvas.height / 2); // Translate the origin to the center
+        if (flipHorizontal !== 1 || flipVertical !== 1) { // Check if the flip is enabled
+          ctx.scale(flipHorizontal, flipVertical); // Flip the image
         }
-        ctx.rotate((rotate * Math.PI) / 180);
-        ctx.drawImage(img, -img.width / 2, -img.height / 2);
-        ctx.resetTransform();
+        ctx.rotate((rotate * Math.PI) / 180); // Rotate the image
+        ctx.drawImage(img, -img.width / 2, -img.height / 2); // Draw the image
+        ctx.resetTransform(); // Reset the transformation matrix
       };
     }
-  }, [image, brightness, contrast, saturation, grayscale, flipHorizontal, flipVertical, rotate]);
+  }, [image, brightness, contrast, saturation, grayscale, flipHorizontal, flipVertical, rotate]); // Re-run the effect whenever the image, brightness, contrast, saturation, grayscale, flipHorizontal, flipVertical, or rotate changes
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
