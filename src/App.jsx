@@ -45,9 +45,9 @@ function App() {
   };
 
   const downloadImage = () => {
-    const canvas = canvasRef.current;
+    const canvas = canvasRef.current; // Get the canvas element
     const image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    const link = document.createElement('a');
+    const link = document.createElement('a'); // Create a download link
     link.href = image;
     link.download = 'edited-image.png';
     link.click();
