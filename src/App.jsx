@@ -36,21 +36,21 @@ function App() {
   }, [image, brightness, contrast, saturation, grayscale, flipHorizontal, flipVertical, rotate]); // Re-run the effect whenever the image, brightness, contrast, saturation, grayscale, flipHorizontal, flipVertical, or rotate changes
 
   const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setImage(reader.result);
+    const file = event.target.files[0]; // Get the selected file
+    const reader = new FileReader(); // Create a new file reader
+    reader.onloadend = () => { // When the file is loaded
+      setImage(reader.result); // Set the image
     };
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(file); // Read the file as a data URL
   };
 
   const downloadImage = () => {
     const canvas = canvasRef.current; // Get the canvas element
     const image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
     const link = document.createElement('a'); // Create a download link
-    link.href = image;
-    link.download = 'edited-image.png';
-    link.click();
+    link.href = image; // Set the href of the link
+    link.download = 'edited-image.png'; // Set the filename
+    link.click(); // Trigger the download
   };
 
   return (
