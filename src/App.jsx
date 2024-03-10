@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Fragment } from 'react';
+import React, { useState, useEffect, useRef, Fragment } from 'react'; // quicker-photo-tuneup/src/App.jsx
 import './App.css';
 
 function App() {
@@ -82,4 +82,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App; // Export the App component
